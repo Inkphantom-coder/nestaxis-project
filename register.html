@@ -46,7 +46,7 @@
             background: linear-gradient(
                 135deg,
                 rgba(10, 22, 40, 0.75) 0%,
-                rgba(10, 22, 40, 0.60) 100%
+                rgba(10, 22, 40, 0.60) 100
             );
             z-index: 0;
         }
@@ -255,73 +255,88 @@
 
             <div class="divider"></div>
 
-            <div class="section-gap">
-                <p class="section-label">Identity Credentials</p>
+            <form id="registration-form">
+                
+                <div class="section-gap">
+                    <p class="section-label">Identity Credentials</p>
 
-                <div class="form-row-two">
-                    <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input type="text" id="firstname" placeholder="John" required>
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" placeholder="Doe" required>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" placeholder="Doe" required>
+                        <label for="email">Corporate Email Address</label>
+                        <input type="email" id="email" placeholder="investor@company.com" required>
+                        <p class="helper-text">An activation key link will be transmitted to this destination.</p>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Corporate Email Address</label>
-                    <input type="email" id="email" placeholder="investor@company.com" required>
-                    <p class="helper-text">An activation key link will be transmitted to this destination.</p>
+                <div class="section-gap">
+                    <p class="section-label">Investment Profile</p>
+
+                    <div class="form-group">
+                        <label for="partner-type">Partner Type</label>
+                        <select id="partner-type" required>
+                            <option value="" disabled selected>Select profile type...</option>
+                            <option value="private">Private Investor</option>
+                            <option value="institutional">Institutional Syndicate</option>
+                            <option value="agent">Certified Listing Agent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objective">Primary Objective</label>
+                        <select id="objective" required>
+                            <option value="" disabled selected>Select objective...</option>
+                            <option value="luxury">Luxury Estates</option>
+                            <option value="commercial">Commercial Land Development</option>
+                            <option value="multifamily">Multi-family Portfolios</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="section-gap">
-                <p class="section-label">Investment Profile</p>
+                <div class="section-gap">
+                    <p class="section-label">Security Settings</p>
 
-                <div class="form-group">
-                    <label for="partner-type">Partner Type</label>
-                    <select id="partner-type" required>
-                        <option value="" disabled selected>Select profile type...</option>
-                        <option value="private">Private Investor</option>
-                        <option value="institutional">Institutional Syndicate</option>
-                        <option value="agent">Certified Listing Agent</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="password">Account Password</label>
+                        <input type="password" id="password" placeholder="Minimum 8 characters" minlength="8" required>
+                        <p class="helper-text">Password profile requires a minimum allocation of 8 characters.</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="objective">Primary Objective</label>
-                    <select id="objective" required>
-                        <option value="" disabled selected>Select objective...</option>
-                        <option value="luxury">Luxury Estates</option>
-                        <option value="commercial">Commercial Land Development</option>
-                        <option value="multifamily">Multi-family Portfolios</option>
-                    </select>
+                <div class="consent-group">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">I explicitly certify all registration credentials and consent to the <a href="#">Terms of Capital Management</a> & Privacy Guidelines.</label>
                 </div>
-            </div>
 
-            <div class="section-gap">
-                <p class="section-label">Security Settings</p>
+                <button type="submit" class="btn-primary">Initialize Portal Account</button>
 
-                <div class="form-group">
-                    <label for="password">Account Password</label>
-                    <input type="password" id="password" placeholder="Minimum 8 characters" minlength="8" required>
-                    <p class="helper-text">Password profile requires a minimum allocation of 8 characters.</p>
-                </div>
-            </div>
-
-            <div class="consent-group">
-                <input type="checkbox" id="consent" required>
-                <label for="consent">I explicitly certify all registration credentials and consent to the <a href="#">Terms of Capital Management</a> & Privacy Guidelines.</label>
-            </div>
-
-            <button class="btn-primary">Initialize Portal Account</button>
-
+            </form>
             <div class="card-footer">
                 Already integrated into the axis? <a href="index.html">Sign In to Portal</a>
             </div>
 
         </div>
     </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const userFirstname = document.getElementById('firstname').value;
+            
+            alert(`Portal Registration Completed Successfully!\nWelcome to the axis, ${userFirstname}. Redirecting to authorization vault...`);
+            
+            
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>
