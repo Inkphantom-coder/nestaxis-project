@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partner Registration | NestAxis Premium Portal</title>
+    <title>Sign Up | NestAxis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -79,8 +79,11 @@
         }
 
         .logo img {
+            width: 64px;
             height: 64px;
-            width: auto;
+            border-radius: 50%;
+            object-fit: contain;
+            background: transparent;
         }
 
         .card-header {
@@ -245,12 +248,12 @@
         <div class="card">
 
             <div class="logo">
-                <img src="assets/logo.png" alt="NestAxis Logo">
+                <img src="assets/logo.png" alt="NestAxis">
             </div>
 
             <div class="card-header">
-                <h1>Create Partner Account</h1>
-                <p>Join the core axis of modern property investments</p>
+                <h1>Create Account</h1>
+                <p>Join NestAxis and start investing in properties</p>
             </div>
 
             <div class="divider"></div>
@@ -258,7 +261,7 @@
             <form id="registration-form">
                 
                 <div class="section-gap">
-                    <p class="section-label">Identity Credentials</p>
+                    <p class="section-label">Your Details</p>
 
                     <div class="form-row-two">
                         <div class="form-group">
@@ -272,56 +275,56 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Corporate Email Address</label>
-                        <input type="email" id="email" placeholder="investor@company.com" required>
-                        <p class="helper-text">An activation key link will be transmitted to this destination.</p>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                        <p class="helper-text">We'll send a verification link to this email.</p>
                     </div>
                 </div>
 
                 <div class="section-gap">
-                    <p class="section-label">Investment Profile</p>
+                    <p class="section-label">Investment Preferences</p>
 
                     <div class="form-group">
-                        <label for="partner-type">Partner Type</label>
+                        <label for="partner-type">Account Type</label>
                         <select id="partner-type" required>
-                            <option value="" disabled selected>Select profile type...</option>
+                            <option value="" disabled selected>Select type...</option>
                             <option value="private">Private Investor</option>
-                            <option value="institutional">Institutional Syndicate</option>
-                            <option value="agent">Certified Listing Agent</option>
+                            <option value="institutional">Institution</option>
+                            <option value="agent">Real Estate Agent</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="objective">Primary Objective</label>
+                        <label for="objective">Investment Focus</label>
                         <select id="objective" required>
-                            <option value="" disabled selected>Select objective...</option>
-                            <option value="luxury">Luxury Estates</option>
-                            <option value="commercial">Commercial Land Development</option>
-                            <option value="multifamily">Multi-family Portfolios</option>
+                            <option value="" disabled selected>Select focus...</option>
+                            <option value="luxury">Luxury Homes</option>
+                            <option value="commercial">Commercial Property</option>
+                            <option value="multifamily">Apartment Buildings</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="section-gap">
-                    <p class="section-label">Security Settings</p>
+                    <p class="section-label">Password</p>
 
                     <div class="form-group">
-                        <label for="password">Account Password</label>
-                        <input type="password" id="password" placeholder="Minimum 8 characters" minlength="8" required>
-                        <p class="helper-text">Password profile requires a minimum allocation of 8 characters.</p>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="At least 8 characters" minlength="8" required>
+                        <p class="helper-text">Must be at least 8 characters long.</p>
                     </div>
                 </div>
 
                 <div class="consent-group">
                     <input type="checkbox" id="consent" required>
-                    <label for="consent">I explicitly certify all registration credentials and consent to the <a href="#">Terms of Capital Management</a> & Privacy Guidelines.</label>
+                    <label for="consent">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
                 </div>
 
-                <button type="submit" class="btn-primary">Initialize Portal Account</button>
+                <button type="submit" class="btn-primary">Create Account</button>
 
             </form>
             <div class="card-footer">
-                Already integrated into the axis? <a href="index.html">Sign In to Portal</a>
+                Already have an account? <a href="index.html">Sign In</a>
             </div>
 
         </div>
@@ -332,8 +335,7 @@
             event.preventDefault();
             const userFirstname = document.getElementById('firstname').value;
             
-            alert(`Portal Registration Completed Successfully!\nWelcome to the axis, ${userFirstname}. Redirecting to authorization vault...`);
-            
+            alert(`Account created!\nWelcome, ${userFirstname}. Taking you to login...`);
             
             window.location.href = 'index.html';
         });
